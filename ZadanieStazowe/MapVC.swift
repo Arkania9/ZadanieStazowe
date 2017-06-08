@@ -11,7 +11,7 @@ import RealmSwift
 import GoogleMaps
 
 class MapVC: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Map & Markers"
@@ -45,7 +45,7 @@ class MapVC: UIViewController {
     
     func showAlertWith(title: String, and message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: title, style: .default) { (action) in
+        let action = UIAlertAction(title: "Ok", style: .default) { (action) in
             self.dismiss(animated: true, completion: nil)
         }
         alertController.addAction(action)
