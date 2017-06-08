@@ -1,0 +1,6 @@
+framework module Pods_ZadanieStazowe {
+  umbrella header "Pods-ZadanieStazowe-umbrella.h"
+
+  export *
+  module * { export * }
+}
