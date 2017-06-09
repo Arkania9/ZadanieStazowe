@@ -14,7 +14,7 @@ class MapVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Map & Markers"
+        navigationItem.title = mapTitle
         getUserCurrentLocation()
     }
     
@@ -25,20 +25,18 @@ class MapVC: UIViewController {
         locManager.requestWhenInUseAuthorization()
         locManager.startUpdatingLocation()
         guard let location = locManager.location else { return }
-        startDownloadPlacesAndUpdatingMaps(from: location)
+        startDownloadingPlacesAndUpdatingMaps(from: location)
     }
     
-    func startDownloadPlacesAndUpdatingMaps(from location: CLLocation) {
+    func startDownloadingPlacesAndUpdatingMaps(from location: CLLocation) {
         let service = APIService()
         service.getPlacesFromUser(location) { (result) in
             switch result {
             case .Success(let data):
                 let places = self.createArrayOfPlacesFrom(data)
-                DispatchQueue.main.async {
-                    self.showMapViewAndMarkersFrom(places)
-                }
+                self.showMapViewAndMarkersFrom(places)
             case .Error(let message):
-                self.showAlertWith(title: "Error", and: message)
+                self.showAlertWith(title: errorTitle, and: message)
             }
         }
     }
@@ -82,18 +80,18 @@ class MapVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetailsSegue" {
+        if segue.identifier == mapToDetailsSegue {
             guard let detailsVC =  segue.destination as? DetailsVC else { return }
             guard let marker = sender as? GMSMarker else { return }
             guard let placeToSend = marker.userData as? Place else { return }
             detailsVC.place = placeToSend
-            let realm = try! Realm()
             do {
+                let realm = try Realm()
                 try realm.write {
                     realm.create(Place.self, value: placeToSend, update: true)
                 }
             } catch let error {
-                self.showAlertWith(title: "Error", and: error.localizedDescription)
+                self.showAlertWith(title: errorTitle, and: error.localizedDescription)
             }
         }
     }
@@ -103,7 +101,7 @@ extension MapVC: CLLocationManagerDelegate { }
 
 extension MapVC: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        performSegue(withIdentifier: "showDetailsSegue", sender: marker)
+        performSegue(withIdentifier: mapToDetailsSegue, sender: marker)
         return false
     }
 }

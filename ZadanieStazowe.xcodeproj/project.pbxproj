@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D0C18B2DD1ADDB87C5AC641 /* Pods_ZadanieStazowe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E86258EDE7F998EC560F2EFF /* Pods_ZadanieStazowe.framework */; };
+		8E3200001EEA800400EFEDC2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E32FFFF1EEA800400EFEDC2 /* Constants.swift */; };
 		8EB038441EE9CF92000D34CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB038431EE9CF92000D34CA /* AppDelegate.swift */; };
 		8EB038461EE9CF92000D34CA /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB038451EE9CF92000D34CA /* MapVC.swift */; };
 		8EB038491EE9CF92000D34CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB038471EE9CF92000D34CA /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		716B289AE8DC6302EAA21D20 /* Pods-ZadanieStazowe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZadanieStazowe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZadanieStazowe/Pods-ZadanieStazowe.release.xcconfig"; sourceTree = "<group>"; };
+		8E32FFFF1EEA800400EFEDC2 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8EB038401EE9CF92000D34CA /* ZadanieStazowe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZadanieStazowe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EB038431EE9CF92000D34CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8EB038451EE9CF92000D34CA /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
@@ -60,6 +62,58 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8E3200011EEA80D200EFEDC2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8EB038471EE9CF92000D34CA /* Main.storyboard */,
+				8EB0384A1EE9CF92000D34CA /* Assets.xcassets */,
+				8EB0384C1EE9CF92000D34CA /* LaunchScreen.storyboard */,
+				8EB0384F1EE9CF92000D34CA /* Info.plist */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		8E3200021EEA80FD00EFEDC2 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				8EB038451EE9CF92000D34CA /* MapVC.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		8E3200031EEA810100EFEDC2 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				8EB038C11EE9E178000D34CA /* DetailsVC.swift */,
+			);
+			name = Details;
+			sourceTree = "<group>";
+		};
+		8E3200041EEA810D00EFEDC2 /* Last */ = {
+			isa = PBXGroup;
+			children = (
+				8EB038C31EE9E74C000D34CA /* LastWatchedVC.swift */,
+			);
+			name = Last;
+			sourceTree = "<group>";
+		};
+		8E3200051EEA811800EFEDC2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8EB038BF1EE9DCD9000D34CA /* APIService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		8E3200061EEA819000EFEDC2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				8EB038BD1EE9DB9B000D34CA /* Extensions.swift */,
+				8E32FFFF1EEA800400EFEDC2 /* Constants.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		8EB038371EE9CF92000D34CA = {
 			isa = PBXGroup;
 			children = (
@@ -81,16 +135,13 @@
 		8EB038421EE9CF92000D34CA /* ZadanieStazowe */ = {
 			isa = PBXGroup;
 			children = (
-				8EB038BF1EE9DCD9000D34CA /* APIService.swift */,
-				8EB038BD1EE9DB9B000D34CA /* Extensions.swift */,
+				8E3200051EEA811800EFEDC2 /* Services */,
+				8E3200061EEA819000EFEDC2 /* Utils */,
 				8EB038BA1EE9DAE0000D34CA /* Model */,
 				8EB038B91EE9DADD000D34CA /* View */,
 				8EB038B81EE9DAD8000D34CA /* Controller */,
+				8E3200011EEA80D200EFEDC2 /* Assets */,
 				8EB038431EE9CF92000D34CA /* AppDelegate.swift */,
-				8EB038471EE9CF92000D34CA /* Main.storyboard */,
-				8EB0384A1EE9CF92000D34CA /* Assets.xcassets */,
-				8EB0384C1EE9CF92000D34CA /* LaunchScreen.storyboard */,
-				8EB0384F1EE9CF92000D34CA /* Info.plist */,
 			);
 			path = ZadanieStazowe;
 			sourceTree = "<group>";
@@ -98,9 +149,9 @@
 		8EB038B81EE9DAD8000D34CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8EB038451EE9CF92000D34CA /* MapVC.swift */,
-				8EB038C11EE9E178000D34CA /* DetailsVC.swift */,
-				8EB038C31EE9E74C000D34CA /* LastWatchedVC.swift */,
+				8E3200021EEA80FD00EFEDC2 /* Map */,
+				8E3200031EEA810100EFEDC2 /* Details */,
+				8E3200041EEA810D00EFEDC2 /* Last */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -262,6 +313,7 @@
 				8EB038441EE9CF92000D34CA /* AppDelegate.swift in Sources */,
 				8EB038C41EE9E74C000D34CA /* LastWatchedVC.swift in Sources */,
 				8EB038BE1EE9DB9B000D34CA /* Extensions.swift in Sources */,
+				8E3200001EEA800400EFEDC2 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

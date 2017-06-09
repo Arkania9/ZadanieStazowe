@@ -10,11 +10,16 @@ import UIKit
 
 class LastWatchedCell: UITableViewCell {
 
+    static let reuseIdentifier = "LastWatchedCell"
+    
     @IBOutlet weak var placeNameLbl: UILabel!
     @IBOutlet weak var latitudeLbl: UILabel!
     @IBOutlet weak var longitudeLbl: UILabel!
     
-    func configureTableView(from place: Place) {
+    private var place: Place?
+    
+    func configureTableWith(_ place: Place) {
+        self.place = place
         placeNameLbl.text = place.name
         latitudeLbl.text = "\(place.latitude)"
         longitudeLbl.text = "\(place.longitude)"
